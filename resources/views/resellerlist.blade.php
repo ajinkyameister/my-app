@@ -5,17 +5,17 @@
 </head>
 <body>
 
-		<div>
+		<div class="main">
 
 		<ul>
 
-			Hello World
-			
-			<!-- @foreach ($resellers as $reseller)
 
-					<li>{{$reseller->name}} </li>
+			
+			@foreach ($resellers as $reseller)
+
+					<li> <a href="/#">{{$reseller->name}} </a></li>
 				
-			@endforeach -->
+			@endforeach
 
 		</ul>	
 	</div>

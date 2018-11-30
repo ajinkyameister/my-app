@@ -36,16 +36,18 @@ class ResellerController extends Controller
     public function store(Request $request,Reseller $reseller)
     {
 
-        // dd("ajinkya");
+      
 
-        $resellers = $reseller->create([
+        $reseller->create([
             'name'=>$request->name,
             'phone_number'=>$request->phone_number,
             'address'=>$request->address,
             'pan_card'=>$request->pan_card,
         ]);
     
-        // return view('resellerlist',compact('resellers'));
+       $resellers= $reseller->all();
+
+       return view('resellerlist',compact('resellers'));
 
         
     }
@@ -58,7 +60,7 @@ class ResellerController extends Controller
      */
     public function show(Reseller $reseller)
     {
-        //
+        
     }
 
     /**
