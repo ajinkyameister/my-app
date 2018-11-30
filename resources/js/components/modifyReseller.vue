@@ -1,14 +1,14 @@
 <template>
-	<div>
-		<div>
-			<slot> </slot>
-		</div>
-		<div>
 
-			<li v-for="reseller in resellers" v-text="reseller"> </li>
-		</div>
-		<a class="button is-link is-rounded" @click="openModal()">Rounded</a>
-		
+	<div>
+		<a class="button is-link is-rounded" @click="openModal()">Modify Reseller</a>
+
+		<ul> 
+			<!-- <li v-for="reseller in resellers" > @{{reseller}}</li> -->
+
+			{{resellers}}
+		</ul>	
+
 		<div id="modal"class="modal is-active" v-if="showModal">
 			<div class="modal-background"></div>
 			<div class="modal-card">
@@ -19,12 +19,9 @@
 				</header>
 				<section class="modal-card-body">
 
-					<form method="POST" action="/resellers" @submit="formSubmit">
-
-
-    					<input type="hidden" name="_token" :value="csrf">
-	
-
+					<form method="POST" action="/resellers" @submit.prevent="formSubmit">
+						
+			
 						<label> Name:</label>
 						<input id="name"type="text" name="name"  v-model="name"> <br> <br>
 
@@ -58,16 +55,6 @@
 	
 	export default{
 
-		props:{
-
-			listReseller:{
-
-				type:Object,
-
-			},
-
-		},
-
 		data:function(){
 				return {
 					showModal:false,
@@ -76,16 +63,13 @@
 					'address':"",
 					'pan_card':"",
 					'resellers':[],
-
-            		csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-        		}
-				
+				}
 			},
 
 
 		mounted(){
 
-			console.log('My Reseller component is mounted after great deal of effort');
+			console.log('Modify Reseller');
 		},
 
 		methods:{
@@ -100,18 +84,17 @@
 						'pan_card':this.pan_card
 
 					});
-					this.listResellers(this.name);
 
 					this.closeModal();
 
-					
+					this.listResellers();
 
 			},
 
 			closeModal(){
 
 				this.showModal=false;
-				
+				this.listResellers();
 			},
 			
 			openModal(){
@@ -119,14 +102,12 @@
 				this.showModal=true;
 
 			},
-				listResellers(resellerName){
+			// listResellers(){
 
-				 this.resellers.push = resellerName;
+			// 	return this.resellers.push = this.name;
 				
 
-			},
-
-
+			// }
 		}
 
 		

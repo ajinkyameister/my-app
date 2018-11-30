@@ -11,7 +11,7 @@
 |
 */
 
-
+// use App\Reseller;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +21,8 @@ Route::get('/create','ProjectController@create');
 Route::post('/projects','ProjectController@store');
 
 Route::get('/reseller/create',function(){
+
+	
 
 	return view('MCQAddResellerForm');
 });

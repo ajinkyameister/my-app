@@ -5,17 +5,28 @@
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-
 </head>
 <body>
 	<div id ="roots"></div>
 	<div id="app">
 
-			<reseller> </reseller>
-			<!-- <example-component> </example-component> -->
-		
+		<div class="container">
+			<div class="section">
+				<ul>
+					<li>
+						<reseller> 
 
+																
+					
+						</reseller> <br> <br>
+						<modifyreseller> </modifyreseller>
+					</li>
+				</ul>
+			</div>
+		</div>
+			
 	</div>
+
 	
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
